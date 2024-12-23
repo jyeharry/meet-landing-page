@@ -1,0 +1,77 @@
+:root {
+  --cyan-300: var(hsl(192, 90, 77%));
+  --cyan-600: var(hsl(192, 37, 48%));
+  --purple-300: var(hsl(268, 100, 86%));
+  --purple-600: var(hsl(268, 34, 53%));
+  --slate-300: var(hsl(240, 18, 85%));
+  --slate-600: var(hsl(240, 10, 57%));
+  --slate-900: var(hsl(240, 21, 20%));
+  --white: var(hsl(0, 0, 98%));
+
+  /* @link https://utopia.fyi/space/calculator?c=375,8,1.2,1440,8,1.25,5,2,&s=0.5,2|3|4|5|7|8|9|10|14,xl-6xl&g=s,l,xl,12 */
+
+  --space-xs: 0.25rem;
+  --space-s: 0.5rem;
+  --space-m: 1rem;
+  --space-l: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 2.5rem;
+  --space-3xl: 3.5rem;
+  --space-4xl: 4rem;
+  --space-5xl: 4.5rem;
+  --space-6xl: 5rem;
+  --space-7xl: 7rem;
+
+  /* Custom pairs */
+  --space-xl-6xl: clamp(var(--space-xl), 0.9437rem + 4.507vw, var(--space-6xl));
+
+  --step-1: clamp(3rem, 2.6479rem + 1.5023vw, 4rem);
+  --step-2: clamp(2rem, 1.8239rem + 0.7512vw, 2.5rem);
+  --step-3: clamp(0.75rem, 0.662rem + 0.3756vw, 1rem);
+  --step-4: clamp(1rem, 0.8571rem + 0.2976vw, 1.125rem);
+}
+
+body {
+  font-family: "Red Hat Display", sans-serif;
+}
+
+.txt-1 {
+  color: var(--slate-900);
+  font-size: var(--step-1);
+  letter-spacing: 0;
+  line-height: 1.1;
+  font-weight: black;
+}
+
+.txt-2 {
+  color: var(--slate-900);
+  font-size: var(--step-2);
+  letter-spacing: 0;
+  line-height: 1.1;
+  font-weight: black;
+}
+
+.txt-3 {
+  color: var(--cyan-600);
+  font-size: var(--step-3);
+  letter-spacing: 0.25em;
+  line-height: 1.1;
+  font-weight: black;
+}
+
+p,
+.txt-4 {
+  color: var(--slate-900);
+  font-size: var(--step-4);
+  letter-spacing: 0;
+  line-height: 1.1;
+  font-weight: medium;
+}
+
+.txt-5 {
+  color: var(--slate-900);
+  font-size: 4rem;
+  letter-spacing: 0;
+  line-height: 1.5;
+  font-weight: black;
+}
