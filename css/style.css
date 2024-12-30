@@ -1,14 +1,14 @@
 :root {
-  --cyan-300: var(hsl(192, 90, 77%));
-  --cyan-600: var(hsl(192, 37, 48%));
-  --purple-300: var(hsl(268, 100, 86%));
-  --purple-600: var(hsl(268, 34, 53%));
-  --slate-300: var(hsl(240, 18, 85%));
-  --slate-600: var(hsl(240, 10, 57%));
-  --slate-900: var(hsl(240, 21, 20%));
-  --white: var(hsl(0, 0, 98%));
+  --cyan-300: hsl(192, 90%, 77%);
+  --cyan-600: hsl(192, 37%, 48%);
+  --purple-300: hsl(268, 100%, 86%);
+  --purple-600: hsl(268, 34%, 53%);
+  --slate-300: hsl(240, 18%, 85%);
+  --slate-600: hsl(240, 10%, 57%);
+  --slate-900: hsl(240, 21%, 20%);
+  --white: hsl(0, 0%, 98%);
 
-  /* @link https://utopia.fyi/space/calculator?c=375,8,1.2,1440,8,1.25,5,2,&s=0.5,2|3|4|5|6|7|8|9|10|14,3xl-6xl|xl-6xl&g=s,l,xl,12 */
+  /* @link https://utopia.fyi/space/calculator?c=375,8,1.2,1440,8,1.25,5,2,&s=0.5,2|3|4|5|6|7|8|9|10|14,3xl-7xl|xl-6xl&g=s,l,xl,12 */
 
   --space-xs: 0.25rem;
   --space-s: 0.5rem;
@@ -37,25 +37,40 @@
   --space-7xl-8xl: clamp(5rem, 4.2958rem + 3.0047vw, 7rem);
 
   /* Custom pairs */
+  --space-m-xl: clamp(1rem, 0.6479rem + 1.5023vw, 2rem);
   --space-xl-6xl: clamp(2rem, 1.1197rem + 3.7559vw, 4.5rem);
-  --space-3xl-6xl: clamp(3rem, 2.4718rem + 2.2535vw, 4.5rem);
+  --space-3xl-7xl: clamp(3rem, 2.2958rem + 3.0047vw, 5rem);
 
-  --step-1: clamp(3rem, 2.6479rem + 1.5023vw, 4rem);
+  /* @link https://utopia.fyi/clamp/calculator?a=375,1440,40—64 */
+  --step-1: clamp(2.5rem, 1.9718rem + 2.2535vw, 4rem);
+
+  /* @link https://utopia.fyi/clamp/calculator?a=375,1440,32—40 */
   --step-2: clamp(2rem, 1.8239rem + 0.7512vw, 2.5rem);
-  --step-3: clamp(0.75rem, 0.662rem + 0.3756vw, 1rem);
+
+  /* @link https://utopia.fyi/clamp/calculator?a=375,1440,12—18 */
+  --step-3: clamp(0.75rem, 0.618rem + 0.5634vw, 1.125rem);
+
+  /* @link https://utopia.fyi/clamp/calculator?a=768,1440,16—18 */
   --step-4: clamp(1rem, 0.8571rem + 0.2976vw, 1.125rem);
+
+  /* @link https://utopia.fyi/clamp/calculator?a=375,1440,144—256 */
+  --fluid-144-256: clamp(9rem, 6.5352rem + 10.5164vw, 16rem);
+
+  /* @link https://utopia.fyi/clamp/calculator?a=375,1440,160—256 */
+  --fluid-160-256: clamp(10rem, 7.8873rem + 9.0141vw, 16rem);
 }
 
 body {
   font-family: "Red Hat Display", sans-serif;
 }
 
+h1,
 .txt-1 {
   color: var(--slate-900);
   font-size: var(--step-1);
   letter-spacing: 0;
   line-height: 1.1;
-  font-weight: black;
+  font-weight: 900;
 }
 
 .txt-2 {
@@ -63,7 +78,7 @@ body {
   font-size: var(--step-2);
   letter-spacing: 0;
   line-height: 1.1;
-  font-weight: black;
+  font-weight: 900;
 }
 
 .txt-3 {
@@ -71,28 +86,29 @@ body {
   font-size: var(--step-3);
   letter-spacing: 0.25em;
   line-height: 1.1;
-  font-weight: black;
+  font-weight: 900;
 }
 
 p,
 .txt-4 {
-  color: var(--slate-900);
+  color: var(--slate-600);
   font-size: var(--step-4);
   letter-spacing: 0;
   line-height: 1.1;
-  font-weight: medium;
+  font-weight: 500;
 }
 
-.txt-5 {
+.txt-5,
+.btn {
   color: var(--slate-900);
   font-size: 1rem;
   letter-spacing: 0;
   line-height: 1.5;
-  font-weight: black;
+  font-weight: 900;
 }
 
 header {
-  padding-block-start: var(--space-3xl-6xl);
+  padding-block-start: var(--space-3xl-7xl);
 
   & > * {
     margin-inline: auto;
@@ -107,4 +123,105 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.stack > * + * {
+  margin-block-start: var(--space, 1.5rem);
+}
+
+.btn {
+  padding-block: var(--space-m);
+  padding-inline: var(--space-2xl);
+  border: none;
+  font-weight: 700;
+  border-radius: 2rem;
+  color: var(--white);
+  background-color: var(--purple-600);
+
+  &:hover {
+    background-color: hsl(268, 55%, 71%);
+    cursor: pointer;
+  }
+
+  &.btn--blue {
+    background-color: var(--cyan-600);
+
+    &:hover {
+      background-color: hsl(192, 54%, 64%);
+    }
+
+    & > .btn__muted {
+      color: var(--cyan-300);
+    }
+  }
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--space-3xl);
+  padding-block: var(--space-5xl) var(--space-xl);
+
+  @media (width >= 768px) {
+    flex-direction: row;
+  }
+}
+
+.hero__content {
+  padding-inline: var(--space-xl);
+}
+
+.hero__img-right {
+  @media (width < 768px) {
+    display: none;
+  }
+}
+
+.hero__btn-group {
+  display: flex;
+  gap: var(--space-m);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.highlights {
+  padding-block: var(--space-xl) var(--space-5xl);
+}
+
+.step-label {
+  border: 1px solid var(--slate-300);
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  justify-content: center;
+  color: var(--slate-600);
+  position: relative;
+  margin-top: 5rem;
+
+  &::before {
+    width: 1px;
+    height: 5rem;
+    background-color: var(--slate-300);
+    content: "";
+    position: absolute;
+    bottom: 100%;
+  }
+}
+
+.highlights__imgs-wrapper {
+  display: flex;
+  gap: var(--space-m-xl);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.highlights__img {
+  max-width: var(--fluid-160-256);
+  aspect-ratio: 1;
 }
