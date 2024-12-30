@@ -9,6 +9,7 @@
   --white: hsl(0, 0%, 98%);
 
   /* @link https://utopia.fyi/space/calculator?c=375,8,1.2,1440,8,1.25,5,2,&s=0.5,2|3|4|5|6|7|8|9|10|14,3xl-7xl|xl-6xl&g=s,l,xl,12 */
+  /* https://utopia.fyi/space/calculator?c=375,8,1.2,768,8,1.25,5,2,&s=0.5,2%7C3%7C4%7C5%7C6%7C7%7C8%7C9%7C10%7C14,s-l%7Cm-xl%7Cxl-4xl%7Cxl-7xl&g=s,l,xl,12 */
 
   --space-xs: 0.25rem;
   --space-s: 0.5rem;
@@ -38,7 +39,9 @@
 
   /* Custom pairs */
   --space-m-xl: clamp(1rem, 0.6479rem + 1.5023vw, 2rem);
+  --space-xl-4xl: clamp(2rem, 0.5687rem + 6.1069vw, 3.5rem);
   --space-xl-6xl: clamp(2rem, 1.1197rem + 3.7559vw, 4.5rem);
+  --space-xl-7xl: clamp(2rem, -0.8626rem + 12.2137vw, 5rem);
   --space-3xl-7xl: clamp(3rem, 2.2958rem + 3.0047vw, 5rem);
 
   /* @link https://utopia.fyi/clamp/calculator?a=375,1440,40—64 */
@@ -54,10 +57,25 @@
   --step-4: clamp(1rem, 0.8571rem + 0.2976vw, 1.125rem);
 
   /* @link https://utopia.fyi/clamp/calculator?a=375,1440,144—256 */
-  --fluid-144-256: clamp(9rem, 6.5352rem + 10.5164vw, 16rem);
+  --fluid-144-256-lg: clamp(9rem, 6.5352rem + 10.5164vw, 16rem);
 
   /* @link https://utopia.fyi/clamp/calculator?a=375,1440,160—256 */
   --fluid-160-256: clamp(10rem, 7.8873rem + 9.0141vw, 16rem);
+
+  /* @link https://utopia.fyi/clamp/calculator?a=768,1440,32—80 */
+  --fluid-32-80: clamp(2rem, -1.4286rem + 7.1429vw, 5rem);
+
+  /* @link https://utopia.fyi/clamp/calculator?a=375,1600,144—256 */
+  --fluid-144-256-xl: clamp(9rem, 6.8571rem + 9.1429vw, 16rem);
+
+  /* @link https://utopia.fyi/clamp/calculator?a=375,768,144—160 */
+  --fluid-144-160: clamp(9rem, 8.0458rem + 4.0712vw, 10rem);
+
+  /* @link https://utopia.fyi/clamp/calculator?a=375,768,144—156 */
+  --fluid-144-156: clamp(9rem, 8.2844rem + 3.0534vw, 9.75rem);
+
+  /* @link https://utopia.fyi/clamp/calculator?a=768,1440,156—256 */
+  --fluid-156-256: clamp(9.75rem, 2.6071rem + 14.881vw, 16rem);
 }
 
 body {
@@ -94,7 +112,7 @@ p,
   color: var(--slate-600);
   font-size: var(--step-4);
   letter-spacing: 0;
-  line-height: 1.1;
+  line-height: 1.5;
   font-weight: 500;
 }
 
@@ -191,7 +209,8 @@ header {
 }
 
 .highlights {
-  padding-block: var(--space-xl) var(--space-5xl);
+  padding-block: var(--space-xl-4xl) var(--space-5xl);
+  padding-inline: var(--fluid-32-80);
 }
 
 .step-label {
@@ -214,7 +233,8 @@ header {
   }
 }
 
-.highlights__imgs-wrapper {
+.highlights__imgs-wrapper,
+.highlights__imgs-wrapper-inner {
   display: flex;
   gap: var(--space-m-xl);
   flex-wrap: wrap;
@@ -222,6 +242,14 @@ header {
 }
 
 .highlights__img {
-  max-width: var(--fluid-160-256);
   aspect-ratio: 1;
+  border-radius: var(--space-m);
+
+  @media (width <= 768px) {
+    max-width: var(--fluid-144-156);
+  }
+
+  @media (width > 768px) {
+    max-width: var(--fluid-156-256);
+  }
 }
