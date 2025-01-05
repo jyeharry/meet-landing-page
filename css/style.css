@@ -8,6 +8,8 @@
   --slate-900: hsl(240, 21%, 20%);
   --white: hsl(0, 0%, 98%);
 
+  --step-label-size: 3.5rem;
+
   /* @link https://utopia.fyi/space/calculator?c=375,8,1.2,1440,8,1.25,5,2,&s=0.5,2|3|4|5|6|7|8|9|10|14,3xl-7xl|xl-6xl&g=s,l,xl,12 */
   /* https://utopia.fyi/space/calculator?c=375,8,1.2,768,8,1.25,5,2,&s=0.5,2%7C3%7C4%7C5%7C6%7C7%7C8%7C9%7C10%7C14,s-l%7Cm-xl%7Cxl-4xl%7Cxl-7xl&g=s,l,xl,12 */
 
@@ -76,15 +78,31 @@
 
   /* @link https://utopia.fyi/clamp/calculator?a=768,1440,156—256 */
   --fluid-156-256: clamp(9.75rem, 2.6071rem + 14.881vw, 16rem);
+
+  /* @link https://utopia.fyi/clamp/calculator?a=768,1440,64—112 */
+  --fluid-64-112: clamp(4rem, 0.5714rem + 7.1429vw, 7rem);
 }
 
 body {
   font-family: "Red Hat Display", sans-serif;
+  color: var(--slate-600);
+  background-color: var(--white);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--slate-900);
+  text-wrap-style: balance;
+}
+
+p {
+  text-wrap-style: pretty;
 }
 
 h1,
 .txt-1 {
-  color: var(--slate-900);
   font-size: var(--step-1);
   letter-spacing: 0;
   line-height: 1.1;
@@ -92,7 +110,6 @@ h1,
 }
 
 .txt-2 {
-  color: var(--slate-900);
   font-size: var(--step-2);
   letter-spacing: 0;
   line-height: 1.1;
@@ -100,7 +117,6 @@ h1,
 }
 
 .txt-3 {
-  color: var(--cyan-600);
   font-size: var(--step-3);
   letter-spacing: 0.25em;
   line-height: 1.1;
@@ -109,7 +125,6 @@ h1,
 
 p,
 .txt-4 {
-  color: var(--slate-600);
   font-size: var(--step-4);
   letter-spacing: 0;
   line-height: 1.5;
@@ -118,7 +133,6 @@ p,
 
 .txt-5,
 .btn {
-  color: var(--slate-900);
   font-size: 1rem;
   letter-spacing: 0;
   line-height: 1.5;
@@ -151,6 +165,22 @@ header {
 
 .stack > * + * {
   margin-block-start: var(--space, 1.5rem);
+}
+
+.stack--sm > * + * {
+  --space: 1rem;
+}
+
+.stack--md > * + * {
+  --space: 2rem;
+}
+
+.stack--lg > * + * {
+  --space: 4rem;
+}
+
+.white {
+  color: var(--white);
 }
 
 .btn {
@@ -213,11 +243,16 @@ header {
   padding-inline: var(--fluid-32-80);
 }
 
+.highlights__hgroup {
+  color: var(--cyan-600);
+}
+
 .step-label {
   border: 1px solid var(--slate-300);
   border-radius: 50%;
-  width: 3.5rem;
-  height: 3.5rem;
+  background-color: var(--white);
+  width: var(--step-label-size);
+  height: var(--step-label-size);
   justify-content: center;
   color: var(--slate-600);
   position: relative;
@@ -252,4 +287,54 @@ header {
   @media (width > 768px) {
     max-width: var(--fluid-156-256);
   }
+}
+
+.footer__content-background {
+  --overlay: hsla(from var(--cyan-600) h s l / 0.9);
+
+  background-image: linear-gradient(var(--overlay), var(--overlay)),
+    url(../assets/mobile/image-footer.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media (width >= 768px) {
+    background-image: linear-gradient(var(--overlay), var(--overlay)),
+      url(../assets/tablet/image-footer.jpg);
+  }
+
+  @media (width >= 1440px) {
+    background-image: linear-gradient(var(--overlay), var(--overlay)),
+      url(../assets/desktop/image-footer.jpg);
+  }
+}
+
+.footer__content {
+  --measure: 70rem;
+
+  padding-block: var(--fluid-64-112);
+  padding-inline: var(--fluid-32-80);
+  margin-block-start: calc(var(--step-label-size) / -2);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  @media (width >= 1440px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    text-align: left;
+
+    > * {
+      flex: 0 33%;
+    }
+  }
+}
+
+.footer__btn-container {
+  display: flex;
+  gap: var(--space-m);
+  justify-content: flex-end;
 }
