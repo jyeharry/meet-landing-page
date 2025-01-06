@@ -42,8 +42,6 @@
   /* Custom pairs */
   --space-m-xl: clamp(1rem, 0.6479rem + 1.5023vw, 2rem);
   --space-xl-4xl: clamp(2rem, 0.5687rem + 6.1069vw, 3.5rem);
-  --space-xl-6xl: clamp(2rem, 1.1197rem + 3.7559vw, 4.5rem);
-  --space-xl-7xl: clamp(2rem, -0.8626rem + 12.2137vw, 5rem);
   --space-3xl-7xl: clamp(3rem, 2.2958rem + 3.0047vw, 5rem);
 
   /* @link https://utopia.fyi/clamp/calculator?a=375,1440,40—64 */
@@ -58,20 +56,8 @@
   /* @link https://utopia.fyi/clamp/calculator?a=768,1440,16—18 */
   --step-4: clamp(1rem, 0.8571rem + 0.2976vw, 1.125rem);
 
-  /* @link https://utopia.fyi/clamp/calculator?a=375,1440,144—256 */
-  --fluid-144-256-lg: clamp(9rem, 6.5352rem + 10.5164vw, 16rem);
-
-  /* @link https://utopia.fyi/clamp/calculator?a=375,1440,160—256 */
-  --fluid-160-256: clamp(10rem, 7.8873rem + 9.0141vw, 16rem);
-
   /* @link https://utopia.fyi/clamp/calculator?a=768,1440,32—80 */
   --fluid-32-80: clamp(2rem, -1.4286rem + 7.1429vw, 5rem);
-
-  /* @link https://utopia.fyi/clamp/calculator?a=375,1600,144—256 */
-  --fluid-144-256-xl: clamp(9rem, 6.8571rem + 9.1429vw, 16rem);
-
-  /* @link https://utopia.fyi/clamp/calculator?a=375,768,144—160 */
-  --fluid-144-160: clamp(9rem, 8.0458rem + 4.0712vw, 10rem);
 
   /* @link https://utopia.fyi/clamp/calculator?a=375,768,144—156 */
   --fluid-144-156: clamp(9rem, 8.2844rem + 3.0534vw, 9.75rem);
@@ -81,6 +67,9 @@
 
   /* @link https://utopia.fyi/clamp/calculator?a=768,1440,64—112 */
   --fluid-64-112: clamp(4rem, 0.5714rem + 7.1429vw, 7rem);
+
+  /* @link https://utopia.fyi/clamp/calculator?a=768,1440,480—600 */
+  --fluid-480-600: clamp(30rem, 21.4286rem + 17.8571vw, 37.5rem);
 }
 
 body {
@@ -211,22 +200,37 @@ header {
 }
 
 .hero {
+  --measure: 90rem;
   display: flex;
   flex-direction: column;
   row-gap: var(--space-3xl);
   padding-block: var(--space-5xl) var(--space-xl);
+  overflow: hidden;
 
-  @media (width >= 768px) {
+  @media (width > 768px) {
     flex-direction: row;
   }
 }
 
 .hero__content {
   padding-inline: var(--space-xl);
+  --measure: 30rem;
+}
+
+.hero__img-left {
+  width: calc(100% + 3rem);
+  max-width: none;
+
+  @media (width > 768px) {
+    margin-inline-start: -1.5rem;
+    width: unset;
+  }
 }
 
 .hero__img-right {
-  @media (width < 768px) {
+  margin-inline-end: -1.5rem;
+
+  @media (width <= 768px) {
     display: none;
   }
 }
@@ -241,6 +245,10 @@ header {
 .highlights {
   padding-block: var(--space-xl-4xl) var(--space-5xl);
   padding-inline: var(--fluid-32-80);
+}
+
+.highlights__content {
+  --measure: var(--fluid-480-600);
 }
 
 .highlights__hgroup {
@@ -310,7 +318,7 @@ header {
 }
 
 .footer__content {
-  --measure: 70rem;
+  --measure: 30rem;
 
   padding-block: var(--fluid-64-112);
   padding-inline: var(--fluid-32-80);
@@ -321,6 +329,7 @@ header {
   gap: 1.5rem;
 
   @media (width >= 1440px) {
+    --measure: 70rem;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;

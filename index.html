@@ -23,10 +23,10 @@
   </head>
   <body>
     <header class="center"><img src="assets/logo.svg" /></header>
-    <section class="hero">
-      <picture>
+    <section class="hero center">
+      <picture class="hero__img-left">
         <source
-          media="(min-width: 768px)"
+          media="(width > 768px)"
           srcset="assets/desktop/image-hero-left.png"
         />
         <img src="assets/tablet/image-hero.png" alt="Grid of portraits" />
@@ -81,7 +81,7 @@
           />
         </div>
       </div>
-      <div class="center stack stack--md">
+      <div class="highlights__content center stack stack--md">
         <hgroup class="highlights__hgroup stack stack--sm">
           <p class="txt-3">BUILT FOR MODERN USE</p>
           <h2 class="txt-2">Smarter meetings, all in one place</h2>
