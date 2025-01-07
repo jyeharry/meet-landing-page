@@ -22,36 +22,40 @@
     <title>Frontend Mentor | Meet landing page</title>
   </head>
   <body>
-    <header class="center"><img src="assets/logo.svg" /></header>
-    <section class="hero center">
-      <picture class="hero__img-left">
-        <source
-          media="(width > 768px)"
-          srcset="assets/desktop/image-hero-left.png"
-        />
-        <img src="assets/tablet/image-hero.png" alt="Grid of portraits" />
-      </picture>
-      <div class="hero__content stack center">
-        <h1>Group Chat for Everyone</h1>
-        <p>
-          Meet makes it easy to connect with others face-to-face virtually and
-          collaborate across any device.
-        </p>
+    <header class="center">
+      <img src="assets/logo.svg" alt="Brand logo" />
+    </header>
+    <main>
+      <section class="hero center">
+        <picture class="hero__img-left">
+          <source
+            media="(width > 768px)"
+            srcset="assets/desktop/image-hero-left.png"
+          />
+          <img src="assets/tablet/image-hero.png" alt="Grid of portraits" />
+        </picture>
+        <div class="hero__content stack center">
+          <h1>Group Chat for Everyone</h1>
+          <p>
+            Meet makes it easy to connect with others face-to-face virtually and
+            collaborate across any device.
+          </p>
 
-        <div class="hero__btn-group">
-          <button class="btn btn--blue">
-            Download <span class="btn__muted">v1.3</span>
-          </button>
-          <button class="btn">What is it?</button>
+          <div class="hero__btn-group">
+            <button class="btn btn--blue">
+              Download <span class="btn__muted">v1.3</span>
+            </button>
+            <button class="btn">What is it?</button>
+          </div>
         </div>
-      </div>
-      <picture class="hero__img-right">
-        <img
-          src="assets/desktop/image-hero-right.png"
-          alt="Grid of portraits"
-        />
-      </picture>
-    </section>
+        <picture class="hero__img-right">
+          <img
+            src="assets/desktop/image-hero-right.png"
+            alt="Grid of portraits"
+          />
+        </picture>
+      </section>
+    </main>
 
     <section class="highlights stack stack--lg">
       <div class="step-label center txt-5">01</div>
